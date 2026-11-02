@@ -18,6 +18,12 @@ Mirage 的 AI 实测与自动化内容视觉资产项目。以「阿搭」河狸
 - scripts/：Windows 本地自动同步脚本。
 - .github/workflows/：基础 Skill 元数据检查。
 
+## 当前默认视觉风格
+
+**暖白科技 3D 品牌风格（V1.1）**：暖白背景、淡紫几何渐变、Mirage 橙紫点缀、高质感阿搭 3D 主体、短标题、少量线性图标与充足留白。详细规范见 [references/visual-rules.md](references/visual-rules.md) 和 [风格预设](references/style-presets/warm-white-tech-3d.md)。
+
+![阿搭暖白科技 3D 风格参考](assets/style-references/ada-warm-white-tech-3d-v1.1.jpg)
+
 ## Windows 自动同步
 
 本仓库使用本地文件监听，而不是把本地文件误认为会自动出现在 GitHub 上。首次安装需要在 Windows 上运行一次安装脚本；之后脚本会监听本地 Skill 目录，检测到文件新增、修改或删除后，等待短暂静默时间，再自动提交并推送到 main。
