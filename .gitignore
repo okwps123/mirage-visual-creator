@@ -1,0 +1,33 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+secrets/
+secret/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.kdbx
+*token*.json
+*credentials*.json
+
+# Local runtime / caches
+.cache/
+.cache-*/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
+*.swp
+*.swo
