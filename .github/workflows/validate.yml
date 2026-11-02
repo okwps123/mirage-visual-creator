@@ -1,0 +1,35 @@
+name: Validate Mirage Skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Validate Skill metadata
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          skill = Path("SKILL.md")
+          if not skill.is_file():
+              raise SystemExit("SKILL.md is missing")
+          text = skill.read_text(encoding="utf-8")
+          if not text.startswith("---\n"):
+              raise SystemExit("Skill front matter is missing")
+          front_matter = text.split("---", 2)[1]
+          if "name: mirage-visual-creator" not in front_matter:
+              raise SystemExit("Unexpected Skill name")
+          if "description:" not in front_matter:
+              raise SystemExit("Skill description is missing")
+          print("Mirage Skill metadata looks valid.")
+          PY
